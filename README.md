@@ -6,5 +6,7 @@ Evaluation of GA heuristic to find optimized microservice placements for a train
 - [Feather File Format In Python | Less Space, More Speed](https://www.journaldev.com/53105/feather-file-format-in-python)
 
 ### install dependencies: 
-`pip install pandas`
-`pip install numpy`
+```
+pip install pandas
+pip install numpy
+```
