@@ -3,7 +3,7 @@ from microservice import Microservice
 
 
 class MicroserviceGroup:
-    ''' MicroservicGroup class '''
+    """ MicroservicGroup class """
 
     def __init__(self, microservices_list):
         self.microservices = microservices_list

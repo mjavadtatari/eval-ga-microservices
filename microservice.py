@@ -1,5 +1,5 @@
 class Microservice:
-    ''' Microservices class '''
+    """ Microservices class """
 
     def __init__(self, time):
         # class attributes
