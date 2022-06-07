@@ -2,14 +2,14 @@ import random
 
 
 class Chromosome:
-    ''' Chromosome Class'''
+    """ Chromosome Class """
 
     def __init__(self, microservices_list):
         self.microservices = microservices_list
 
     def mutation(self, microservice_group):
         index = random.randrange(0, len(self.microservices), 1)
-        self.microservices[index] = microservice_group.get_random_microservice()
+        self.microservices[index] = microservice_group[0].get_random_microservice() # used to be microservice_group[0].get_random_microservice()
 
     def fitness(self):
         temp_sum = 0
@@ -21,8 +21,9 @@ class Chromosome:
 
     def crossover(self, another):
         break_point = random.randrange(0, len(self.microservices), 1)
-        child_one = self.microservices[:break_point] + another[break_point:]
-        child_two = self.microservices[break_point:] + another[:break_point]
+
+        child_one = Chromosome(self.microservices[:break_point] + another.microservices[break_point:])
+        child_two = Chromosome(self.microservices[break_point:] + another.microservices[:break_point])
 
         return [child_one, child_two]
 
