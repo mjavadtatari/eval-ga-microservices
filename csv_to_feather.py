@@ -10,9 +10,7 @@ dataframe = pd.read_csv(CSV_FILE_ADDRESS)
 # save the PANDAS's dataframe into a FEATHER file
 dataframe.to_feather(FEATHER_FILE_ADDRESS)
 
-
 print('done')
-
 
 # to read a FEATHER file, do:
 # import feather
