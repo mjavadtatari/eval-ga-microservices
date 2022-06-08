@@ -33,4 +33,4 @@ class Microservice:
         return self.response_time
 
     def get_value(self):
-        return self.response_time/100
+        return self.response_time / 100

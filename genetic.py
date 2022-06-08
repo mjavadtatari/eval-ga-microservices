@@ -72,14 +72,14 @@ class Genetic:
 
             x = self.selection()
             for i in range(int(x)):
-                first_parent = self.populations[random.randint(0, len(self.populations)-1)]
-                second_parent = self.populations[random.randint(0, len(self.populations)-1)]
+                first_parent = self.populations[random.randint(0, len(self.populations) - 1)]
+                second_parent = self.populations[random.randint(0, len(self.populations) - 1)]
                 new_childes = first_parent.crossover(second_parent)
                 self.populations.append(new_childes[0])
                 self.populations.append(new_childes[1])
 
             y = self.selection()
             for i in range(int(y)):
-                self.populations[random.randint(0, len(self.populations)-1)].mutation(self.microservicegroups)
+                self.populations[random.randint(0, len(self.populations) - 1)].mutation(self.microservicegroups)
 
         return self.populations[0]

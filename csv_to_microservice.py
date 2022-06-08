@@ -5,6 +5,7 @@ from microservice_group import MicroserviceGroup
 # global variables
 CSV_FILE_ADDRESS = 'sample-data.csv'
 
+wanted_columns = [0, 1, 2, 4, 6, 7]
 rows_without_headers = []
 microservicesgroup_list = []
 
@@ -14,10 +15,10 @@ with open(CSV_FILE_ADDRESS, 'r') as f:
 
     rows_without_headers.pop(0)
 
-for col in range(1, 13):
+for col in wanted_columns:
     microservices_list = []
     for i in rows_without_headers:
-        microservices_list.append(Microservice(float(i[col])))
+        microservices_list.append(Microservice(float(i[col + 1])))
     microservicesgroup_list.append(MicroserviceGroup(microservices_list))
 
 

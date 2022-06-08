@@ -21,6 +21,6 @@ class MicroserviceGroup:
         for i in self.microservices:
             if i.get_response_time() > response_time:
                 self.microservices.pop(i)
-    
+
     def get_random_microservice(self):
-        return self.microservices[random.randrange(0, len(self.microservices),1)]
+        return self.microservices[random.randrange(0, len(self.microservices), 1)]
