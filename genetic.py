@@ -9,7 +9,11 @@ class Genetic:
     populations = []
 
     def __init__(self, microservicegroup_list):
-        self.microservicegroups = microservicegroup_list
+        temp_list = []
+        for i in microservicegroup_list:
+            temp_list.append(i.filter_group(600))
+
+        self.microservicegroups = temp_list
 
         for i in range(0, 30):
             temp_list = []
@@ -50,12 +54,13 @@ class Genetic:
     def show_population(self):
         temp_list = []
         for i in self.populations:
-            temp_list.append(i)
+            temp_list.append(i.show_chromosome())
+            print(i.show_chromosome())
             # temp_i=[]
             # for j in i.get_microservices():
             #     temp_i.append(j.get_response_time())
             # temp_list.append(temp_i)
-
+            # print(i.show_chromosome())
         return temp_list
 
     def selection(self):
@@ -80,6 +85,20 @@ class Genetic:
 
             y = self.selection()
             for i in range(int(y)):
-                self.populations[random.randint(0, len(self.populations) - 1)].mutation(self.microservicegroups)
+                # mutation(self.microservicegroups)
+                self.mutation(self.populations[random.randint(0, len(self.populations) - 1)])
+
+            self.fitness()
+            print('Gen{}:'.format(g + 1))
+            self.show_population()
+            print(self.show_population())
+            # print('\n\n')
 
         return self.populations[0]
+
+    def mutation(self, chromosome):
+        index = random.randrange(0, chromosome.chromosome_size(), 1)
+        temp_chromosome = Chromosome(chromosome.microservices)
+        temp_chromosome.mutation(self.microservicegroups[index], index)
+        self.populations.append(temp_chromosome)
+        # print(type(temp_chromosome))

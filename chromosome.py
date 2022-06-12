@@ -7,9 +7,10 @@ class Chromosome:
     def __init__(self, microservices_list):
         self.microservices = microservices_list
 
-    def mutation(self, microservice_group):
-        index = random.randrange(0, len(self.microservices), 1)
-        self.microservices[index] = microservice_group[0].get_random_microservice() # used to be microservice_group.get_random_microservice()
+    def mutation(self, microservice_group, index):
+        # index = random.randrange(0, len(self.microservices), 1)
+        self.microservices[
+            index] = microservice_group.get_random_microservice()  # used to be microservice_group.get_random_microservice()
 
     def fitness(self):
         temp_sum = 0
@@ -38,5 +39,8 @@ class Chromosome:
 
         for i in self.microservices:
             temp_list.append(i.get_response_time())
-
+        temp_list.append('#{}#'.format(self.fitness()))
         return temp_list
+
+    def chromosome_size(self):
+        return len(self.microservices)

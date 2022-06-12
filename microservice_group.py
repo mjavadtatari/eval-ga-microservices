@@ -18,9 +18,17 @@ class MicroserviceGroup:
         return len(self.microservices)
 
     def filter_group(self, response_time):
+        tmp_list = []
         for i in self.microservices:
-            if i.get_response_time() > response_time:
-                self.microservices.pop(i)
+            if i.get_response_time() < response_time:
+                tmp_list.append(i)
+        return MicroserviceGroup(tmp_list)
 
     def get_random_microservice(self):
         return self.microservices[random.randrange(0, len(self.microservices), 1)]
+
+    def show_microservice_group(self):
+        temp_list = []
+        for i in self.microservices:
+            temp_list.append(i.get_response_time())
+        return temp_list
