@@ -89,10 +89,14 @@ class Genetic:
                 self.mutation(self.populations[random.randint(0, len(self.populations) - 1)])
 
             self.fitness()
-            print('Gen{}:'.format(g + 1))
-            self.show_population()
-            print(self.show_population())
-            # print('\n\n')
+            print('\n\nGen #{}:'.format(g + 1))
+            # self.show_population()
+            # print(self.show_population())
+
+            for idx, i in enumerate(self.microservicegroups):
+                print("MSG #{}: ".format(idx + 1))
+                i.show_statistical_indicators()
+                print('')
 
         return self.populations[0]
 
