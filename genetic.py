@@ -11,7 +11,7 @@ class Genetic:
     def __init__(self, microservicegroup_list):
         temp_list = []
         for i in microservicegroup_list:
-            temp_list.append(i.filter_group(600))
+            temp_list.append(i.filter_group())
 
         self.microservicegroups = temp_list
 
@@ -89,14 +89,14 @@ class Genetic:
                 self.mutation(self.populations[random.randint(0, len(self.populations) - 1)])
 
             self.fitness()
-            print('\n\nGen #{}:'.format(g + 1))
+            # print('\n\nGen #{}:'.format(g + 1))
             # self.show_population()
             # print(self.show_population())
 
-            for idx, i in enumerate(self.microservicegroups):
-                print("MSG #{}: ".format(idx + 1))
-                i.show_statistical_indicators()
-                print('')
+            # for idx, i in enumerate(self.microservicegroups):
+            #     print("MSG #{}: ".format(idx + 1))
+            #     i.set_statistical_indicators()
+            #     print('')
 
         return self.populations[0]
 
