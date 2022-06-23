@@ -20,7 +20,7 @@ with open(CSV_FILE_ADDRESS, 'r') as f:
 for col in wanted_columns:
     microservices_list = []
     for i in rows_without_headers:
-        microservices_list.append(Microservice(float(i[col + 1])))
+        microservices_list.append(Microservice(int(i[col + 1])))
     microservicesgroup_list.append(MicroserviceGroup(microservices_list))  # column_name[idx],
 
     # for i in range(len(microservicesgroup_list)):

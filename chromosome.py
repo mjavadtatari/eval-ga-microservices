@@ -9,8 +9,7 @@ class Chromosome:
 
     def mutation(self, microservice_group, index):
         # index = random.randrange(0, len(self.microservices), 1)
-        self.microservices[
-            index] = microservice_group.get_random_microservice()  # used to be microservice_group.get_random_microservice()
+        self.microservices[index] = microservice_group.get_random_microservice()
 
     def fitness(self):
         temp_sum = 0

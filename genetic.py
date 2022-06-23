@@ -97,6 +97,10 @@ class Genetic:
             #     print("MSG #{}: ".format(idx + 1))
             #     i.set_statistical_indicators()
             #     print('')
+        for i in self.microservicegroups:
+            i.find_quality_degree_matrix(4)
+            i.find_probability_matrix('negative', 'response_time')
+            i.normalize_quality_degree('response_time')
 
         return self.populations[0]
 
